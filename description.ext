@@ -1,0 +1,16 @@
+class CfgFunctions
+{
+	class njt
+	{
+		class tow
+		{
+			file = "njt_tow";
+			class tow_attach{};
+			class tow_canTowSetup{};
+			class tow_clearTow{};
+			class tow_positionCheck{};
+			class tow_towableSetup{};
+			class tow_prepareForTow{};
+		};
+	};
+};
