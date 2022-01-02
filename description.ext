@@ -11,6 +11,7 @@ class CfgFunctions
 			class tow_positionCheck{};
 			class tow_towableSetup{};
 			class tow_prepareForTow{};
+			class tow_removeActions{};
 		};
 	};
 };

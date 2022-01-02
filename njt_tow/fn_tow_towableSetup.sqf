@@ -28,7 +28,7 @@ _towableVehicle addEventHandler ["RopeBreak", {
 // Servers don't need addactions
 if (!isDedicated) then {
 	// Action: release all tows and cables
-	_towableVehicle addAction [
+	_towedReleaseActionID = _towableVehicle addAction [
 		"Release tow cables", // Title
 		{
 			params ["_target", "_caller", "_actionId", "_arguments"];
@@ -43,7 +43,7 @@ if (!isDedicated) then {
 	];
 
 	// Action: connect another vehicle's cable to this vehicle, to tow it
-	[
+	_connectFrontActionID = [
 		_towableVehicle, // Target
 		"Attach current tow cable to this vehicle (front)", // Title
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Idle icon
@@ -67,7 +67,7 @@ if (!isDedicated) then {
 	] call BIS_fnc_holdActionAdd;
 
 	// Action: connect cable (rear connection)
-	[
+	_connectRearActionID = [
 		_towableVehicle, // Target
 		"Attach current tow cable to this vehicle (rear)", // Title
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Idle icon
@@ -90,7 +90,7 @@ if (!isDedicated) then {
 	] call BIS_fnc_holdActionAdd;
 
 	// Action: prepare vehicle for towing
-	[
+	_prepareTowedActionID = [
 		_towableVehicle, // Target
 		"Prepare vehicle to be towed", // Title
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Idle icon
@@ -113,7 +113,7 @@ if (!isDedicated) then {
 	] call BIS_fnc_holdActionAdd;
 
 	// Action: unprepare vehicle for towing
-	[
+	_unprepareTowedActionID = [
 		_towableVehicle, // Target
 		"Restore vehicle from tow-ready state", // Title
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Idle icon
@@ -135,6 +135,17 @@ if (!isDedicated) then {
 		false // Show on screen
 	] call BIS_fnc_holdActionAdd;
 };
+
+_towableVehicle setVariable ["tow_towedReleaseActionID",_towedReleaseActionID];
+_towableVehicle setVariable ["tow_connectFrontActionID",_connectFrontActionID];
+_towableVehicle setVariable ["tow_connectRearActionID",_connectRearActionID];
+_towableVehicle setVariable ["tow_prepareTowedActionID",_prepareTowedActionID];
+_towableVehicle setVariable ["tow_unprepareTowedActionID",_unprepareTowedActionID];
+
+_towableVehicle addEventHandler ["Killed",{
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+	[_unit,0] remoteExec ["njt_tow_fnc_removeActions",0];
+}];
 
 	// Mark this vehicle as set up
 _towableVehicle setVariable ["tow_hasTowableSetup",true];

@@ -12,7 +12,7 @@ _canTowVehicle addEventHandler ["RopeBreak", {
 // Servers don't need addactions
 if (!isDedicated) then {
 	// Action: The cable...I'm going to cut it.
-	_canTowVehicle addAction [
+	_towReleaseActionID = _canTowVehicle addAction [
 		"Release tow cables", // Title
 		{
 			params ["_target", "_caller", "_actionId", "_arguments"];
@@ -27,7 +27,7 @@ if (!isDedicated) then {
 	];
 
 	// Action: Get a cable from this vehicle to tow another
-	[
+	_towPrepareActionID = [
 		_canTowVehicle, // Target
 		"Prepare to tow another vehicle", // Title
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Idle icon
@@ -51,6 +51,11 @@ if (!isDedicated) then {
 		true // Show on screen
 	] call BIS_fnc_holdActionAdd;
 };
+
+__canTowVehicle addEventHandler ["Killed",{
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+	[_unit,1] remoteExec ["njt_tow_fnc_removeActions",0];
+}];
 
 	// Mark this vehicle as set up
 _canTowVehicle setVariable ["tow_hasCanTowSetup",true];
