@@ -142,10 +142,12 @@ if (!isDedicated) then {
 	_towableVehicle setVariable ["tow_unprepareTowedActionID",_unprepareTowedActionID];
 };
 
-_towableVehicle addEventHandler ["Killed",{
-	params ["_unit", "_killer", "_instigator", "_useEffects"];
-	[_unit,0] remoteExec ["njt_tow_fnc_removeActions",0];
-}];
+if (isServer) then {_towableVehicle addMPEventHandler ["MPKilled",{
+		params ["_unit", "_killer", "_instigator", "_useEffects"];
+		[_unit,0] call njt_fnc_tow_removeActions;
+		diag_log "towed killed EH fired";
+	}];
+};
 
 	// Mark this vehicle as set up
 _towableVehicle setVariable ["tow_hasTowableSetup",true];

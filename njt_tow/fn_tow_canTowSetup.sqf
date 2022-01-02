@@ -40,7 +40,7 @@ if (!isDedicated) then {
 			params ["_target", "_caller", "_actionId", "_arguments"];
 			_caller setVariable ["tow_hasTowCable",true,true];
 			_caller setVariable ["tow_prepTowingVehicle",_target,true];
-			hint format ["You are now carrying a cable attached to a %1.",getText (configFile >> "CfgVehicles" >> (typeOf _target) >> "displayNameShort")];
+			hint format ["You are now carrying a cable attached to a %1.",getText (configFile >> "CfgVehicles" >> (typeOf _target) >> "displayName")];
 		}, // Code on completed
 		{}, // Code on interrupt
 		[], // Arguments to pass
@@ -55,9 +55,10 @@ if (!isDedicated) then {
 	_canTowVehicle setVariable ["tow_towPrepareActionID",_towPrepareActionID];
 };
 
-_canTowVehicle addEventHandler ["Killed",{
+if (isServer) then {
+	_canTowVehicle addMPEventHandler ["MPKilled",{
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
-	[_unit,1] remoteExec ["njt_tow_fnc_removeActions",0];
+	[_unit,1] call njt_fnc_tow_removeActions;
 }];
 
 	// Mark this vehicle as set up
