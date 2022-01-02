@@ -52,7 +52,7 @@ if (!isDedicated) then {
 	] call BIS_fnc_holdActionAdd;
 };
 
-__canTowVehicle addEventHandler ["Killed",{
+_canTowVehicle addEventHandler ["Killed",{
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
 	[_unit,1] remoteExec ["njt_tow_fnc_removeActions",0];
 }];
