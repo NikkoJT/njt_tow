@@ -50,6 +50,9 @@ if (!isDedicated) then {
 		false, // Show when unconscious
 		true // Show on screen
 	] call BIS_fnc_holdActionAdd;
+	
+	_canTowVehicle setVariable ["tow_towReleaseActionID",_towReleaseActionID];
+	_canTowVehicle setVariable ["tow_towPrepareActionID",_towPrepareActionID];
 };
 
 _canTowVehicle addEventHandler ["Killed",{

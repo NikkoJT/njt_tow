@@ -134,13 +134,13 @@ if (!isDedicated) then {
 		false, // Show when unconscious
 		false // Show on screen
 	] call BIS_fnc_holdActionAdd;
+	
+	_towableVehicle setVariable ["tow_towedReleaseActionID",_towedReleaseActionID];
+	_towableVehicle setVariable ["tow_connectFrontActionID",_connectFrontActionID];
+	_towableVehicle setVariable ["tow_connectRearActionID",_connectRearActionID];
+	_towableVehicle setVariable ["tow_prepareTowedActionID",_prepareTowedActionID];
+	_towableVehicle setVariable ["tow_unprepareTowedActionID",_unprepareTowedActionID];
 };
-
-_towableVehicle setVariable ["tow_towedReleaseActionID",_towedReleaseActionID];
-_towableVehicle setVariable ["tow_connectFrontActionID",_connectFrontActionID];
-_towableVehicle setVariable ["tow_connectRearActionID",_connectRearActionID];
-_towableVehicle setVariable ["tow_prepareTowedActionID",_prepareTowedActionID];
-_towableVehicle setVariable ["tow_unprepareTowedActionID",_unprepareTowedActionID];
 
 _towableVehicle addEventHandler ["Killed",{
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
