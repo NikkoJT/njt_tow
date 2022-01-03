@@ -57,9 +57,10 @@ if (!isDedicated) then {
 
 if (isServer) then {
 	_canTowVehicle addMPEventHandler ["MPKilled",{
-	params ["_unit", "_killer", "_instigator", "_useEffects"];
-	[_unit,1] call njt_fnc_tow_removeActions;
-}];
+		params ["_unit", "_killer", "_instigator", "_useEffects"];
+		[_unit,1] call njt_fnc_tow_removeActions;
+	}];
+};
 
 	// Mark this vehicle as set up
 _canTowVehicle setVariable ["tow_hasCanTowSetup",true];
