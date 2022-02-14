@@ -1,126 +1,3 @@
-// TOWABLE VEHICLES & VEHICLES THAT CAN TOW
-// These two arrays contain classnames of classes that should be towable, and should be able to tow, respectively. These arrays will be checked when the mission starts or when the JIP client joins.
-// If you want to add a vehicle later you have to remoteExec njt_fnc_towableSetup or njt_fnc_canTowSetup on it.
-
-_towableClassList = ["gm_ge_army_fuchsa0_engineer","gm_ge_army_fuchsa0_command","us85_m1ip","us85_m923r","us85_m923f","us85_m923a","us85_m923c","gm_gc_army_btr60pa","C_IDAP_Offroad_01_F",
-			"I_E_Offroad_01_F",
-			"I_G_Offroad_01_F",
-			"B_G_Offroad_01_F",
-			"O_G_Offroad_01_F",
-			"C_Offroad_01_repair_F",
-			"C_Offroad_01_covered_F",
-			"C_Offroad_01_comms_F",
-			"I_E_Offroad_01_covered_F",
-			"I_E_Offroad_01_comms_F",
-			"B_GEN_Offroad_01_F",
-			"B_GEN_Offroad_01_covered_F",
-			"B_GEN_Offroad_01_comms_F",
-			"I_G_Offroad_01_repair_F",
-			"B_G_Offroad_01_repair_F",
-			"O_G_Offroad_01_repair_F",
-			"I_G_Offroad_01_AT_F",
-			"B_G_Offroad_01_AT_F",
-			"O_G_Offroad_01_AT_F",
-			"C_Offroad_01_F",
-			"I_C_Offroad_02_unarmed_F",
-			"I_C_Offroad_02_AT_F",
-			"C_IDAP_Offroad_02_unarmed_F",
-			"I_C_Offroad_02_LMG_F",
-			"C_Offroad_02_unarmed_F",
-			"C_IDAP_Van_02_transport_F",
-			"I_C_Van_02_transport_F",
-			"I_E_Van_02_transport_F",
-			"I_G_Van_02_transport_F",
-			"B_G_Van_02_transport_F",
-			"O_G_Van_02_transport_F",
-			"B_GEN_Van_02_transport_F",
-			"C_Van_02_vehicle_F",
-			"C_IDAP_Van_02_vehicle_F",
-			"I_C_Van_02_vehicle_F",
-			"I_E_Van_02_vehicle_F",
-			"I_G_Van_02_vehicle_F",
-			"B_G_Van_02_vehicle_F",
-			"O_G_Van_02_vehicle_F",
-			"B_GEN_Van_02_vehicle_F",
-			"C_IDAP_Van_02_medevac_F",
-			"C_Van_02_medevac_F",
-			"I_E_Van_02_medevac_F",
-			"C_Van_02_service_F",
-			"C_IDAP_Van_02_service_F",
-			"I_E_Van_02_transport_MP_F",
-			"C_Van_02_transport_F",
-			"B_G_Offroad_01_armed_F",
-			"O_G_Offroad_01_armed_F",
-			"I_G_Offroad_01_armed_F",
-			"B_MRAP_01_F",
-			"B_MRAP_01_hmg_F",
-			"B_MRAP_01_gmg_F",
-			"B_T_MRAP_01_F",
-			"B_T_MRAP_01_hmg_F",
-			"B_T_MRAP_01_gmg_F"] apply {toLower _x};
-_canTowClassList = ["gm_ge_army_bpz2a0","gm_ge_army_fuchsa0_engineer","gm_ge_army_fuchsa0_command","C_IDAP_Offroad_01_F","I_E_Offroad_01_F",
-			"I_G_Offroad_01_F",
-			"B_G_Offroad_01_F",
-			"O_G_Offroad_01_F",
-			"C_Offroad_01_repair_F",
-			"C_Offroad_01_covered_F",
-			"C_Offroad_01_comms_F",
-			"I_E_Offroad_01_covered_F",
-			"I_E_Offroad_01_comms_F",
-			"B_GEN_Offroad_01_F",
-			"B_GEN_Offroad_01_covered_F",
-			"B_GEN_Offroad_01_comms_F",
-			"I_G_Offroad_01_repair_F",
-			"B_G_Offroad_01_repair_F",
-			"O_G_Offroad_01_repair_F",
-			"I_G_Offroad_01_AT_F",
-			"B_G_Offroad_01_AT_F",
-			"O_G_Offroad_01_AT_F",
-			"C_Offroad_01_F",
-			"I_C_Offroad_02_unarmed_F",
-			"I_C_Offroad_02_AT_F",
-			"C_IDAP_Offroad_02_unarmed_F",
-			"I_C_Offroad_02_LMG_F",
-			"C_Offroad_02_unarmed_F",
-			"C_IDAP_Van_02_transport_F",
-			"I_C_Van_02_transport_F",
-			"I_E_Van_02_transport_F",
-			"I_G_Van_02_transport_F",
-			"B_G_Van_02_transport_F",
-			"O_G_Van_02_transport_F",
-			"B_GEN_Van_02_transport_F",
-			"C_Van_02_vehicle_F",
-			"C_IDAP_Van_02_vehicle_F",
-			"I_C_Van_02_vehicle_F",
-			"I_E_Van_02_vehicle_F",
-			"I_G_Van_02_vehicle_F",
-			"B_G_Van_02_vehicle_F",
-			"O_G_Van_02_vehicle_F",
-			"B_GEN_Van_02_vehicle_F",
-			"C_IDAP_Van_02_medevac_F",
-			"C_Van_02_medevac_F",
-			"I_E_Van_02_medevac_F",
-			"C_Van_02_service_F",
-			"C_IDAP_Van_02_service_F",
-			"I_E_Van_02_transport_MP_F",
-			"C_Van_02_transport_F",
-			"B_G_Offroad_01_armed_F",
-			"O_G_Offroad_01_armed_F",
-			"I_G_Offroad_01_armed_F",
-			"B_MRAP_01_F",
-			"B_MRAP_01_hmg_F",
-			"B_MRAP_01_gmg_F",
-			"B_T_MRAP_01_F",
-			"B_T_MRAP_01_hmg_F",
-			"B_T_MRAP_01_gmg_F"] apply {toLower _x};
-
-_towableVehicles = vehicles select {(toLower typeOf _x) in _towableClassList};
-_canTowVehicles = vehicles select {(toLower typeOf _x) in _canTowClassList};
-
-// These two arrays can contain specific vehicles that you want to add to each list, in addition to the classes. Specified vehicles will still use their class-type config defined below.
-_towableVehicles append [];
-_canTowVehicles append [];
-
 // VEHICLE CONFIGS
 // A CONFIG THAT INHERITS FROM ANOTHER CONFIG MUST BE ADDED AFTER, NOT BEFORE, THE CONFIG IT INHERITS FROM
 /* EXAMPLE CONFIG
@@ -533,6 +410,30 @@ tow_vehicleConfigs set [toLower "gm_gc_army_ural4320_cargo",
 			"gm_gc_army_ural4320_reammo_un",
 			"gm_gc_army_ural4320_reammo_wdl",
 			"gm_gc_army_ural4320_reammo_win",
+			"gm_pl_army_ural4320_reammo",
+			"gm_pl_army_ural4320_reammo_oli",
+			"gm_pl_army_ural4320_reammo_ols",
+			"gm_pl_army_ural4320_reammo_olw",
+			"gm_pl_army_ural4320_repair",
+			"gm_pl_army_ural4320_repair_oli",
+			"gm_pl_army_ural4320_repair_ols",
+			"gm_pl_army_ural4320_repair_olw",
+			"gm_pl_army_ural4320_cargo",
+			"gm_pl_army_ural4320_cargo_oli",
+			"gm_pl_army_ural4320_cargo_ols",
+			"gm_pl_army_ural4320_cargo_olw",
+			"gm_pl_army_ural375d_medic",
+			"gm_pl_army_ural375d_medic_oli",
+			"gm_pl_army_ural375d_medic_ols",
+			"gm_pl_army_ural375d_medic_olw",
+			"gm_pl_army_ural375d_mlrs",
+			"gm_pl_army_ural375d_mlrs_oli",
+			"gm_pl_army_ural375d_mlrs_ols",
+			"gm_pl_army_ural375d_mlrs_olw",
+			"gm_pl_army_ural375d_refuel",
+			"gm_pl_army_ural375d_refuel_oli",
+			"gm_pl_army_ural375d_refuel_ols",
+			"gm_pl_army_ural375d_refuel_olw",
 			"gm_gc_army_ural4320_repair",
 			"gm_gc_army_ural4320_repair_oli",
 			"gm_gc_army_ural4320_repair_ols",
@@ -617,8 +518,7 @@ tow_vehicleConfigs set [toLower "US85_M1008",
 						tow_vehicleConfigs get (toLower "US85_M1008")
 					];
 } forEach [	"US85_M1008c",
-			"US85_M1008_S250",
-			"US85_M1025"];
+			"US85_M1008_S250"];
 
 tow_vehicleConfigs set [toLower "gm_ge_army_m113a1g_apc",
 						(createHashmapFromArray [
@@ -705,3 +605,100 @@ tow_vehicleConfigs set [toLower "gm_ge_army_m113a1g_apc",
 			"gm_dk_army_m113a2dk_apc_wdl",
 			"gm_dk_army_m113a2dk_apc_win"
 			];
+			
+tow_vehicleConfigs set [toLower "gm_gc_army_brdm2",
+						(createHashmapFromArray [
+							["effectiveTowMass",4000],
+							["limitTowMass",7500],
+							["towHook",[-0.05,-2.7,-1.8]],
+							["towPointFront1",[-0.58,2.01,-1.75]],
+							["towPointFront2",[0.47,2.01,-1.75]],
+							["towPointRear1",[0.48,-2.9,-1.57]],
+							["towPointRear2",[-0.65,-2.9,-1.57]],
+							["typeLockOverride",false]
+						])
+					];
+{tow_vehicleConfigs set [toLower _x,
+						tow_vehicleConfigs get (toLower "gm_gc_army_brdm2")
+					];
+} forEach [	"gm_gc_army_brdm2_win",
+			"gm_gc_army_brdm2_oli",
+			"gm_gc_army_brdm2_ols",
+			"gm_gc_army_brdm2_olw",
+			"gm_gc_army_brdm2_un",
+			"gm_gc_army_brdm2_wdl",
+			"gm_pl_army_brdm2",
+			"gm_pl_army_brdm2_oli",
+			"gm_pl_army_brdm2_ols",
+			"gm_pl_army_brdm2_win",
+			"gm_pl_army_brdm2_olw",
+			"gm_pl_army_brdm2_inv"];
+
+tow_vehicleConfigs set 	[toLower "gm_ge_civ_typ1200",
+						(createHashmapFromArray [
+							["effectiveTowMass",900],
+							["limitTowMass",1300],
+							["towHook",[0,-1.6,-1]],
+							["towPointFront1",[0.4,1.8,-1]],
+							["towPointFront2",[-0.4,1.8,-1]],
+							["towPointRear1",[0.4,-1.6,-1]],
+							["towPointRear2",[-0.4,-1.6,-1]],
+							["typeLockOverride",false]
+						])
+					];
+{tow_vehicleConfigs set [toLower _x,
+						tow_vehicleConfigs get (toLower "gm_ge_civ_typ1200")
+					];
+} forEach [	"gm_ge_dbp_typ1200",
+			"gm_ge_ff_typ1200",
+			"gm_ge_pol_typ1200",
+			"gm_dk_army_typ1200_cargo",
+			"gm_dk_army_typ1200_cargo_oli",
+			"gm_dk_army_typ1200_cargo_ols",
+			"gm_dk_army_typ1200_cargo_olw",
+			"gm_ge_army_typ1200_cargo",
+			"gm_ge_army_typ1200_cargo_oli",
+			"gm_ge_army_typ1200_cargo_oli_rc",
+			"gm_ge_army_typ1200_cargo_ols",
+			"gm_ge_army_typ1200_cargo_ols_rc",
+			"gm_ge_army_typ1200_cargo_olw",
+			"gm_ge_army_typ1200_cargo_olw_rc"];
+
+tow_vehicleConfigs set 	[toLower "gm_gc_civ_p601",
+						(createHashmapFromArray [
+							["effectiveTowMass",600],
+							["limitTowMass",650],
+							["towHook",[0.1,-1.5,-1.1]],
+							["towPointFront1",[0.4,1.65,-1.2]],
+							["towPointFront2",[-0.55,1.65,-1.2]],
+							["towPointRear1",[-0.55,-1.5,-1.2]],
+							["towPointRear2",[0.4,-1.5,-1.2]],
+							["typeLockOverride",false]
+						])
+					];
+{tow_vehicleConfigs set [toLower _x,
+						tow_vehicleConfigs get (toLower "gm_gc_civ_p601")
+					];
+} forEach [	"gm_gc_ff_p601",
+			"gm_gc_pol_p601",
+			"gm_gc_dp_p601",
+			"gm_gc_army_p601",
+			"gm_gc_army_p601_oli",
+			"gm_gc_army_p601_mp",
+			"gm_gc_bgs_p601",
+			"gm_gc_bgs_p601_oli"];
+			
+// TOWABLE VEHICLES & VEHICLES THAT CAN TOW
+// These two arrays contain classnames of classes that should be towable, and should be able to tow, respectively. These arrays will be checked when the mission starts or when the JIP client joins.
+// If you want to add a vehicle later you have to remoteExec njt_fnc_towableSetup or njt_fnc_canTowSetup on it.
+// By default all vehicles with configured classes will be added.
+
+_towableClassList = keys tow_vehicleConfigs;
+_canTowClassList = keys tow_vehicleConfigs;
+
+_towableVehicles = vehicles select {(toLower typeOf _x) in _towableClassList};
+_canTowVehicles = vehicles select {(toLower typeOf _x) in _canTowClassList};
+
+// These two arrays can contain specific vehicles that you want to add to each list, in addition to the classes. Specified vehicles will still use their class-type config defined above.
+_towableVehicles append [];
+_canTowVehicles append [];
