@@ -696,8 +696,12 @@ tow_vehicleConfigs set 	[toLower "gm_gc_civ_p601",
 _towableClassList = keys tow_vehicleConfigs;
 _canTowClassList = keys tow_vehicleConfigs;
 
-_towableVehicles = vehicles select {(toLower typeOf _x) in _towableClassList};
-_canTowVehicles = vehicles select {(toLower typeOf _x) in _canTowClassList};
+_towableVehiclesBeforeRemoves = vehicles select {(toLower typeOf _x) in _towableClassList};
+_canTowVehiclesBeforeRemoves = vehicles select {(toLower typeOf _x) in _canTowClassList};
+
+// Remove specific vehicles even if they are configured by type:
+_towableVehicles = _towableVehiclesBeforeRemoves - [];
+_canTowVehicles = _canTowVehiclesBeforeRemoves - [];
 
 // These two arrays can contain specific vehicles that you want to add to each list, in addition to the classes. Specified vehicles will still use their class-type config defined above.
 _towableVehicles append [];
