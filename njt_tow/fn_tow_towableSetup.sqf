@@ -49,8 +49,8 @@ if (!isDedicated) then {
 		"Attach current tow cable to this vehicle (front)", // Title
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Idle icon
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Progress icon
-		"(_this getVariable [""tow_hasTowCable"",false]) && {!(_this in _target) && ((count (ropes _target)) < 1) && (isNull (_target getVariable [""tow_vehicleTowingThis"",objNull])) && ((_target distance _this) < 5) && ([_target,_this,0] call njt_fnc_tow_positionCheck) && (_target getVariable [""tow_isTowReady"",false])};", // Condition to show
-		"(_this getVariable [""tow_hasTowCable"",false]) && {!(_this in _target) && ((count (ropes _target)) < 1) && (isNull (_target getVariable [""tow_vehicleTowingThis"",objNull])) && ((_target distance _this) < 5) && ([_target,_this,0] call njt_fnc_tow_positionCheck) && (_target getVariable [""tow_isTowReady"",false])};", // Condition to progress
+		"(_this getVariable [""tow_hasTowCable"",false]) && {(vehicle _this == _this) && ((count (ropes _target)) < 1) && (isNull (_target getVariable [""tow_vehicleTowingThis"",objNull])) && ((_target distance _this) < 5) && ([_target,_this,0] call njt_fnc_tow_positionCheck) && (_target getVariable [""tow_isTowReady"",false])};", // Condition to show
+		"(_this getVariable [""tow_hasTowCable"",false]) && {(vehicle _this == _this) && ((count (ropes _target)) < 1) && (isNull (_target getVariable [""tow_vehicleTowingThis"",objNull])) && ((_target distance _this) < 5) && ([_target,_this,0] call njt_fnc_tow_positionCheck) && (_target getVariable [""tow_isTowReady"",false])};", // Condition to progress
 		{}, // Code on start
 		{}, // Code on tick
 		{ 
@@ -73,8 +73,8 @@ if (!isDedicated) then {
 		"Attach current tow cable to this vehicle (rear)", // Title
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Idle icon
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Progress icon
-		"(_this getVariable [""tow_hasTowCable"",false]) && {!(_this in _target) && ((count (ropes _target)) < 1) && (isNull (_target getVariable [""tow_vehicleTowingThis"",objNull])) && ((_target distance _this) < 5) && ([_target,_this,1] call njt_fnc_tow_positionCheck) && (_target getVariable [""tow_isTowReady"",false]) && (vehicle _this == _this)};", // Condition to show
-		"(_this getVariable [""tow_hasTowCable"",false]) && {!(_this in _target) && ((count (ropes _target)) < 1) && (isNull (_target getVariable [""tow_vehicleTowingThis"",objNull])) && ((_target distance _this) < 5) && ([_target,_this,1] call njt_fnc_tow_positionCheck) && (_target getVariable [""tow_isTowReady"",false]) && (vehicle _this == _this)};", // Condition to progress
+		"(_this getVariable [""tow_hasTowCable"",false]) && {((count (ropes _target)) < 1) && (isNull (_target getVariable [""tow_vehicleTowingThis"",objNull])) && ((_target distance _this) < 5) && ([_target,_this,1] call njt_fnc_tow_positionCheck) && (_target getVariable [""tow_isTowReady"",false]) && (vehicle _this == _this)};", // Condition to show
+		"(_this getVariable [""tow_hasTowCable"",false]) && {((count (ropes _target)) < 1) && (isNull (_target getVariable [""tow_vehicleTowingThis"",objNull])) && ((_target distance _this) < 5) && ([_target,_this,1] call njt_fnc_tow_positionCheck) && (_target getVariable [""tow_isTowReady"",false]) && (vehicle _this == _this)};", // Condition to progress
 		{}, // Code on start
 		{}, // Code on tick
 		{ 

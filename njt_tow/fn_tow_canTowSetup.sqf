@@ -32,8 +32,8 @@ if (!isDedicated) then {
 		"Prepare to tow another vehicle", // Title
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Idle icon
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Progress icon
-		"!(_this getVariable [""tow_hasTowCable"",false]) && {!(_this in _target) && ((count (ropes _target)) < 1) && ((_target distance _this) < 5) && !(_target getVariable [""tow_isTowReady"",false])};", // Condition to show
-		"!(_this getVariable [""tow_hasTowCable"",false]) && {!(_this in _target) && ((count (ropes _target)) < 1) && ((_target distance _this) < 5) && !(_target getVariable [""tow_isTowReady"",false])};", // Condition to progress
+		"!(_this getVariable [""tow_hasTowCable"",false]) && {(vehicle _this == _this) && ((count (ropes _target)) < 1) && ((_target distance _this) < 5) && !(_target getVariable [""tow_isTowReady"",false])};", // Condition to show
+		"!(_this getVariable [""tow_hasTowCable"",false]) && {(vehicle _this == _this) && ((count (ropes _target)) < 1) && ((_target distance _this) < 5) && !(_target getVariable [""tow_isTowReady"",false])};", // Condition to progress
 		{}, // Code on start
 		{}, // Code on tick
 		{ 
