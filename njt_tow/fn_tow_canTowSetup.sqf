@@ -25,6 +25,21 @@ if (!isDedicated) then {
 		"", // Shortcut
 		"((_target distance _this) < 5) && ((count ropes _target) > 0)" // Condition
 	];
+	
+	// Action: Release brakes on the towed vehicle
+	_towBrakesActionID = _canTowVehicle addAction [
+		"Override towed vehicle brakes", // Title
+		{
+			params ["_target", "_caller", "_actionId", "_arguments"];
+			(_target getVariable ["tow_vehicleTowedByThis",objNull]) disableBrakes true;
+		}, // Code
+		"", // Arguments
+		10, // Priority
+		false, // Show window
+		true, // Hide on use
+		"", // Shortcut
+		"(driver _target == _this) && {!(isNull _target getVariable ['tow_vehicleTowedByThis',objNull]) && !(brakesDisabled _target getVariable ['tow_vehicleTowedByThis',objNul])}" // Condition
+	];
 
 	// Action: Get a cable from this vehicle to tow another
 	_towPrepareActionID = [
