@@ -27,18 +27,35 @@ if (!isDedicated) then {
 	];
 	
 	// Action: Release brakes on the towed vehicle
-	_towBrakesActionID = _canTowVehicle addAction [
-		"Override towed vehicle brakes", // Title
+	_towBrakesOffActionID = _canTowVehicle addAction [
+		"Disable towed vehicle brakes", // Title
 		{
 			params ["_target", "_caller", "_actionId", "_arguments"];
-			(_target getVariable ["tow_vehicleTowedByThis",objNull]) disableBrakes true;
+			_vehicle = (_target getVariable ["tow_vehicleTowedByThis",objNull]);
+			[_vehicle,true] remoteExec ["disableBrakes",_vehicle];
 		}, // Code
 		"", // Arguments
 		10, // Priority
 		false, // Show window
 		true, // Hide on use
 		"", // Shortcut
-		"(driver _target == _this) && {!(isNull _target getVariable ['tow_vehicleTowedByThis',objNull]) && !(brakesDisabled _target getVariable ['tow_vehicleTowedByThis',objNul])}" // Condition
+		"(driver _target == _this) && {!(isNull (_target getVariable ['tow_vehicleTowedByThis',objNull])) && !(brakesDisabled (_target getVariable ['tow_vehicleTowedByThis',objNul]))}" // Condition
+	];
+	
+	// Action: Restore brakes on the towed vehicle
+	_towBrakesOnActionID = _canTowVehicle addAction [
+		"Enable towed vehicle brakes", // Title
+		{
+			params ["_target", "_caller", "_actionId", "_arguments"];
+			_vehicle = (_target getVariable ["tow_vehicleTowedByThis",objNull]);
+			[_vehicle,false] remoteExec ["disableBrakes",_vehicle];
+		}, // Code
+		"", // Arguments
+		10, // Priority
+		false, // Show window
+		true, // Hide on use
+		"", // Shortcut
+		"(driver _target == _this) && {!(isNull (_target getVariable ['tow_vehicleTowedByThis',objNull])) && (brakesDisabled (_target getVariable ['tow_vehicleTowedByThis',objNul]))}" // Condition
 	];
 
 	// Action: Get a cable from this vehicle to tow another
