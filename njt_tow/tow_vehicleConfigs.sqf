@@ -287,7 +287,7 @@ tow_vehicleConfigs set 	[toLower "US85_M1IP",
 						(createHashmapFromArray [
 							["effectiveTowMass",10000],
 							["limitTowMass",20000],
-							["towHook",[]],
+							["towHook",[0,-4.65,-1.55]],
 							["towPointFront1",[0.95,2.6,-1.9]],
 							["towPointFront2",[-0.9,2.6,-1.9]],
 							["towPointRear1",[1.05,-4.65,-1.55]],
