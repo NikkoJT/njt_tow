@@ -133,7 +133,7 @@ if (!isDedicated) then {
 		1, // Priority
 		false, // Remove on completion
 		false, // Show when unconscious
-		false // Show on screen
+		true // Show on screen
 	] call BIS_fnc_holdActionAdd;
 	
 	_towableVehicle setVariable ["tow_towedReleaseActionID",_towedReleaseActionID];

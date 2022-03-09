@@ -80,11 +80,13 @@ if (!isDedicated) then {
 		1, // Priority
 		false, // Remove on completion
 		false, // Show when unconscious
-		true // Show on screen
+		false // Show on screen
 	] call BIS_fnc_holdActionAdd;
 	
 	_canTowVehicle setVariable ["tow_towReleaseActionID",_towReleaseActionID];
 	_canTowVehicle setVariable ["tow_towPrepareActionID",_towPrepareActionID];
+	_canTowVehicle setVariable ["tow_towBrakesOffActionID",_towReleaseActionID];
+	_canTowVehicle setVariable ["tow_towBrakesOnActionID",_towReleaseActionID];
 };
 
 if (isServer) then {
