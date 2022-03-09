@@ -13,7 +13,11 @@ switch (_mode) do {
 	};
 	// Remove canTow actions
 	case 1 : {
-		_unit removeAction (_unit getVariable ["tow_towReleaseActionID",0]);
+		{
+			_actionVariable = _unit getVariable [_x,0];
+			[_unit,_actionVariable] call BIS_fnc_holdActionRemove;
+		} forEach ["tow_towReleaseActionID","tow_towBrakesOffActionID","tow_towBrakesOnActionID"];
+
 		_actionVariable = _unit getVariable ["tow_towPrepareActionID",0];
 		[_unit,_actionVariable] call BIS_fnc_holdActionRemove;
 	};
