@@ -687,6 +687,24 @@ tow_vehicleConfigs set 	[toLower "gm_gc_civ_p601",
 			"gm_gc_army_p601_mp",
 			"gm_gc_bgs_p601",
 			"gm_gc_bgs_p601_oli"];
+
+// Mora
+tow_vehicleConfigs set 	[toLower "I_APC_tracked_03_cannon_F",
+						(createHashmapFromArray [
+							["effectiveTowMass",36200],
+							["limitTowMass",15000],
+							["towHook",[0,-3.4,-1.9]],
+							["towPointFront1",[0.8,2.8,-1.35]],
+							["towPointFront2",[-0.8,2.8,-1.35]],
+							["towPointRear1",[0.8,-3.5,-1.5]],
+							["towPointRear2",[-0.8,-3.5,-1.5]],
+							["typeLockOverride",false]
+						])
+					];
+{tow_vehicleConfigs set [toLower _x,
+						tow_vehicleConfigs get (toLower "I_APC_tracked_03_cannon_F")
+					];
+} forEach [	"I_E_APC_tracked_03_cannon_F"];
 			
 // TOWABLE VEHICLES & VEHICLES THAT CAN TOW
 // These two arrays contain classnames of classes that should be towable, and should be able to tow, respectively. These arrays will be checked when the mission starts or when the JIP client joins.
