@@ -295,6 +295,10 @@ tow_vehicleConfigs set 	[toLower "US85_M1IP",
 							["typeLockOverride",false]
 						])
 					];
+{tow_vehicleConfigs set [toLower _x,
+						tow_vehicleConfigs get (toLower "US85_M1IP")
+					];
+} forEach [	"US85_M1A1"];
 	
 tow_vehicleConfigs set 	[toLower "US85_M923c",
 						(createHashmapFromArray [
