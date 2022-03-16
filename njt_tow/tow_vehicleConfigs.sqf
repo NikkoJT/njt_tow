@@ -220,6 +220,42 @@ tow_vehicleConfigs set 	[toLower "B_MRAP_01_hmg_F",
 			"B_T_MRAP_01_gmg_F",
 			"B_MRAP_01_gmg_F"];
 			
+tow_vehicleConfigs set 	[toLower "O_MRAP_02_F",
+						(createHashmapFromArray [
+							["effectiveTowMass",4000],
+							["limitTowMass",8500],
+							["towHook",[0,-4.5,-1.3]],
+							["towPointFront1",[0.42,1.65,-1.5]],
+							["towPointFront2",[-0.42,1.65,-1.5]],
+							["towPointRear1",[0.3,-4.5,-1.3]],
+							["towPointRear2",[-0.3,-4.5,-1.3]],
+							["typeLockOverride",false]
+						])
+					];
+{tow_vehicleConfigs set [toLower _x,
+						tow_vehicleConfigs get (toLower "O_MRAP_02_F")
+					];
+} forEach [	"O_T_MRAP_02_F"];
+
+tow_vehicleConfigs set 	[toLower "O_MRAP_02_hmg_F",
+						(createHashmapFromArray [
+							["effectiveTowMass",4000],
+							["limitTowMass",8500],
+							["towHook",[0,-4.5,-1.65]],
+							["towPointFront1",[0.42,1.65,-1.85]],
+							["towPointFront2",[-0.42,1.65,-1.85]],
+							["towPointRear1",[0.3,-4.5,-1.65]],
+							["towPointRear2",[-0.3,-4.5,-1.65]],
+							["typeLockOverride",false]
+						])
+					];
+{tow_vehicleConfigs set [toLower _x,
+						tow_vehicleConfigs get (toLower "O_MRAP_02_hmg_F")
+					];
+} forEach [	"O_T_MRAP_02_hmg_F",
+			"O_T_MRAP_02_gmg_F",
+			"O_MRAP_02_gmg_F"];
+			
 tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_reconnaissance",
 						(createHashmapFromArray [
 							["effectiveTowMass",5000],
