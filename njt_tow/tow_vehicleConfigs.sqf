@@ -745,6 +745,44 @@ tow_vehicleConfigs set 	[toLower "I_APC_tracked_03_cannon_F",
 						tow_vehicleConfigs get (toLower "I_APC_tracked_03_cannon_F")
 					];
 } forEach [	"I_E_APC_tracked_03_cannon_F"];
+
+//  Zamak
+tow_vehicleConfigs set 	[toLower "C_Truck_02_transport_F",
+						(createHashmapFromArray [
+							["effectiveTowMass",9000],
+							["limitTowMass",10801],
+							["towHook",[0.03,-3.8,-1.2]],
+							["towPointFront1",[0.53,3.8,-1.3]],
+							["towPointFront2",[-0.52,3.8,-1.3]],
+							["towPointRear1",[0.52,-3.45,-1.2]],
+							["towPointRear2",[-0.5,-3.45,-1.2]],
+							["typeLockOverride",false]
+						])
+					];
+{tow_vehicleConfigs set [toLower _x,
+						tow_vehicleConfigs get (toLower "C_Truck_02_transport_F")
+					];
+} forEach [	"C_Truck_02_covered_F",
+			"C_Truck_02_fuel_F",
+			"I_Truck_02_covered_F",
+			"I_Truck_02_transport_F",
+			"I_Truck_02_fuel_F",
+			"I_Truck_02_medical_F",
+			"O_Truck_02_covered_F",
+			"O_Truck_02_transport_F",
+			"O_Truck_02_fuel_F",
+			"O_Truck_02_medical_F",
+			"O_T_Truck_02_covered_F",
+			"O_T_Truck_02_transport_F",
+			"O_T_Truck_02_fuel_F",
+			"O_T_Truck_02_medical_F",
+			"I_E_Truck_02_covered_F",
+			"I_E_Truck_02_transport_F",
+			"I_E_Truck_02_fuel_F",
+			"I_E_Truck_02_medical_F",
+			"C_IDAP_Truck_02_covered_F",
+			"C_IDAP_Truck_02_transport_F",
+			"C_IDAP_Truck_02_water_F"];
 			
 // TOWABLE VEHICLES & VEHICLES THAT CAN TOW
 // These two arrays contain classnames of classes that should be towable, and should be able to tow, respectively. These arrays will be checked when the mission starts or when the JIP client joins.
