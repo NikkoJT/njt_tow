@@ -62,6 +62,32 @@ tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_engineer",
 			"gm_ge_army_fuchsa0_engineer_wdl",
 			"gm_ge_army_fuchsa0_engineer_wiw"];
 			
+tow_vehicleConfigs set 	[toLower "C_Hatchback_01_F",
+						(createHashmapFromArray [
+							["effectiveTowMass",1500],
+							["limitTowMass",2000],
+							["towHook",[-0.05,-2.4,-1]],
+							["towPointFront1",[0.4,1.9,-1.1]],
+							["towPointFront2",[-0.45,1.9,-1.1]],
+							["towPointRear1",[0.4,-2.4,-0.9]],
+							["towPointRear2",[-0.45,-2.4,-0.9]],
+							["typeLockOverride",false]
+						])
+					];
+					
+tow_vehicleConfigs set 	[toLower "C_SUV_01_F",
+						(createHashmapFromArray [
+							["effectiveTowMass",1500],
+							["limitTowMass",2000],
+							["towHook",[0,-2.6,-1]],
+							["towPointFront1",[0.4,2.2,-1]],
+							["towPointFront2",[-0.4,2.2,-1]],
+							["towPointRear1",[-0.4,-2.6,-1]],
+							["towPointRear2",[0.4,-2.6,-1]],
+							["typeLockOverride",false]
+						])
+					];
+			
 tow_vehicleConfigs set 	[toLower "C_Offroad_01_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",1500],
