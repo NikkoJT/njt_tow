@@ -810,6 +810,27 @@ tow_vehicleConfigs set 	[toLower "C_Truck_02_transport_F",
 			"C_IDAP_Truck_02_transport_F",
 			"C_IDAP_Truck_02_water_F"];
 			
+// SKOT-2A (GM)
+tow_vehicleConfigs set [toLower "gm_pl_army_ot64a",
+						(createHashmapFromArray [
+							["effectiveTowMass",10000],
+							["limitTowMass",14100],
+							["towHook",[0,-3,-2.2]],
+							["towPointFront1",[0,4,-1.3]],
+							["towPointFront2",[0,4,-1.3]],
+							["towPointRear1",[0,-3,-2.2]],
+							["towPointRear2",[0,-3,-2.2]],
+							["typeLockOverride",false]
+						])
+					];
+{tow_vehicleConfigs set [toLower _x,
+						tow_vehicleConfigs get (toLower "gm_pl_army_ot64a")
+					];
+} forEach [	"gm_pl_army_ot64a_inv",
+			"gm_pl_army_ot64a_oli",
+			"gm_pl_army_ot64a_ols",
+			"gm_pl_army_ot64a_olw"];
+			
 // TOWABLE VEHICLES & VEHICLES THAT CAN TOW
 // These two arrays contain classnames of classes that should be towable, and should be able to tow, respectively. These arrays will be checked when the mission starts or when the JIP client joins.
 // If you want to add a vehicle later you have to remoteExec njt_fnc_towableSetup or njt_fnc_canTowSetup on it.
