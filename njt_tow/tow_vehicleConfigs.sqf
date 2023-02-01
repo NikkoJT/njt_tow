@@ -843,9 +843,9 @@ _towableVehiclesBeforeRemoves = vehicles select {(toLower typeOf _x) in _towable
 _canTowVehiclesBeforeRemoves = vehicles select {(toLower typeOf _x) in _canTowClassList};
 
 // Remove specific vehicles even if they are configured by type:
-_towableVehicles = _towableVehiclesBeforeRemoves - [];
-_canTowVehicles = _canTowVehiclesBeforeRemoves - [];
+towableVehicles = _towableVehiclesBeforeRemoves - [];
+canTowVehicles = _canTowVehiclesBeforeRemoves - [];
 
 // These two arrays can contain specific vehicles that you want to add to each list, in addition to the classes. Specified vehicles will still use their class-type config defined above.
-_towableVehicles append [];
-_canTowVehicles append [];
+towableVehicles append [];
+canTowVehicles append [];

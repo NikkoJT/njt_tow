@@ -10,12 +10,12 @@
 // Do setup on vehicles that can be towed
 {	
 	[_x] call njt_fnc_tow_towableSetup;
-} forEach _towableVehicles;
+} forEach towableVehicles;
 
 // Do setup on vehicles that can tow
 {
 	[_x] call njt_fnc_tow_canTowSetup;
-} forEach _canTowVehicles;
+} forEach canTowVehicles;
 
 // Setup an action on players to drop their current cable
 if (!isDedicated) then {
