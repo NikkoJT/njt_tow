@@ -62,6 +62,35 @@ tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_engineer",
 			"gm_ge_army_fuchsa0_engineer_wdl",
 			"gm_ge_army_fuchsa0_engineer_wiw"];
 			
+// BMP-1 SP-2
+tow_vehicleConfigs set 	[toLower "gm_pl_army_bmp1sp2",
+						(createHashmapFromArray [
+							["effectiveTowMass",10000],
+							["limitTowMass",13200],
+							["towHook",[0,-2.8,-2]],
+							["towPointFront1",[1.05,3.4,-1.5]],
+							["towPointFront2",[-1.05,3.4,-1.5]],
+							["towPointRear1",[-1.1,-3,-1.15]],
+							["towPointRear2",[1.1,-3,-1.15]],
+							["typeLockOverride",false]
+						])
+					];
+{tow_vehicleConfigs set [toLower _x,
+						tow_vehicleConfigs get (toLower "gm_pl_army_bmp1sp2")
+					];
+} forEach [	"gm_pl_army_bmp1sp2_inv",
+			"gm_pl_army_bmp1sp2_oli",
+			"gm_pl_army_bmp1sp2_ols",
+			"gm_pl_army_bmp1sp2_olw",
+			"gm_gc_army_bmp1sp2",
+			"gm_gc_army_bmp1sp2_oli",
+			"gm_gc_army_bmp1sp2_ols",
+			"gm_gc_army_bmp1sp2_olw",
+			"gm_gc_army_bmp1sp2_un",
+			"gm_gc_army_bmp1sp2_wdl",
+			"gm_gc_army_bmp1sp2_win"
+			];
+			
 tow_vehicleConfigs set 	[toLower "C_Hatchback_01_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",1500],
