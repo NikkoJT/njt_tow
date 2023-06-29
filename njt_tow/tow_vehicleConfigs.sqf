@@ -786,8 +786,8 @@ tow_vehicleConfigs set 	[toLower "gm_gc_civ_p601",
 // Mora
 tow_vehicleConfigs set 	[toLower "I_APC_tracked_03_cannon_F",
 						(createHashmapFromArray [
-							["effectiveTowMass",36200],
-							["limitTowMass",15000],
+							["effectiveTowMass",15000],
+							["limitTowMass",36200],
 							["towHook",[0,-3.4,-1.9]],
 							["towPointFront1",[0.8,2.8,-1.35]],
 							["towPointFront2",[-0.8,2.8,-1.35]],
@@ -859,6 +859,24 @@ tow_vehicleConfigs set [toLower "gm_pl_army_ot64a",
 			"gm_pl_army_ot64a_oli",
 			"gm_pl_army_ot64a_ols",
 			"gm_pl_army_ot64a_olw"];
+
+// Marshall
+tow_vehicleConfigs set [toLower "B_APC_Wheeled_01_cannon_F",
+						(createHashmapFromArray [
+							["effectiveTowMass",16000],
+							["limitTowMass",24000],
+							["towHook",[0,-4,-1.8]],
+							["towPointFront1",[0.6,2.8,-1.3]],
+							["towPointFront2",[-0.6,2.8,-1.3]],
+							["towPointRear1",[0.7,-4.35,-1.5]],
+							["towPointRear2",[-0.7,-4.35,-1.5]],
+							["typeLockOverride",false]
+						])
+					];
+{tow_vehicleConfigs set [toLower _x,
+						tow_vehicleConfigs get (toLower "B_APC_Wheeled_01_cannon_F")
+					];
+} forEach [	"B_T_APC_Wheeled_01_cannon_F"];
 			
 // TOWABLE VEHICLES & VEHICLES THAT CAN TOW
 // These two arrays contain classnames of classes that should be towable, and should be able to tow, respectively. These arrays will be checked when the mission starts or when the JIP client joins.
