@@ -1,7 +1,7 @@
 // Called by tow_init.sqf, or manually by [_canTowVehicle] remoteExec ["njt_fnc_tow_canTowSetup",0,_towableVehicle];
 params ["_canTowVehicle"];
 
-if (_canTowVehicle getVariable ["tow_hasCanTowSetup",false]) exitWith {diag_log "Tow: tried to run towing setup on a vehicle that already has it"};
+if (_canTowVehicle getVariable ["njt_tow_hasCanTowSetup",false]) exitWith {diag_log "Tow: tried to run towing setup on a vehicle that already has it"};
 
 // Add EH to sort everything out if there's an accident
 _canTowVehicle addEventHandler ["RopeBreak", {
@@ -16,7 +16,7 @@ if (!isDedicated) then {
 		"Release tow cables", // Title
 		{
 			params ["_target", "_caller", "_actionId", "_arguments"];
-			[(_target getVariable ["tow_vehicleTowedByThis",objNull]),_target] spawn njt_fnc_tow_clearTow;
+			[(_target getVariable ["njt_tow_vehicleTowedByThis",objNull]),_target] spawn njt_fnc_tow_clearTow;
 		}, // Code
 		"", // Arguments
 		10, // Priority
@@ -31,15 +31,16 @@ if (!isDedicated) then {
 		"Disable towed vehicle brakes", // Title
 		{
 			params ["_target", "_caller", "_actionId", "_arguments"];
-			_vehicle = (_target getVariable ["tow_vehicleTowedByThis",objNull]);
+			_vehicle = (_target getVariable ["njt_tow_vehicleTowedByThis",objNull]);
 			[_vehicle,true] remoteExec ["disableBrakes",_vehicle];
+			[_target,true] spawn njt_fnc_tow_physicsImpulse;
 		}, // Code
 		"", // Arguments
 		10, // Priority
 		false, // Show window
 		true, // Hide on use
 		"", // Shortcut
-		"(driver _target == _this) && {!(isNull (_target getVariable ['tow_vehicleTowedByThis',objNull])) && !(brakesDisabled (_target getVariable ['tow_vehicleTowedByThis',objNul]))}" // Condition
+		"(driver _target == _this) && {!(isNull (_target getVariable ['njt_tow_vehicleTowedByThis',objNull])) && !(brakesDisabled (_target getVariable ['njt_tow_vehicleTowedByThis',objNul]))}" // Condition
 	];
 	
 	// Action: Restore brakes on the towed vehicle
@@ -47,7 +48,7 @@ if (!isDedicated) then {
 		"Enable towed vehicle brakes", // Title
 		{
 			params ["_target", "_caller", "_actionId", "_arguments"];
-			_vehicle = (_target getVariable ["tow_vehicleTowedByThis",objNull]);
+			_vehicle = (_target getVariable ["njt_tow_vehicleTowedByThis",objNull]);
 			[_vehicle,false] remoteExec ["disableBrakes",_vehicle];
 		}, // Code
 		"", // Arguments
@@ -55,7 +56,7 @@ if (!isDedicated) then {
 		false, // Show window
 		true, // Hide on use
 		"", // Shortcut
-		"(driver _target == _this) && {!(isNull (_target getVariable ['tow_vehicleTowedByThis',objNull])) && (brakesDisabled (_target getVariable ['tow_vehicleTowedByThis',objNul]))}" // Condition
+		"(driver _target == _this) && {!(isNull (_target getVariable ['njt_tow_vehicleTowedByThis',objNull])) && (brakesDisabled (_target getVariable ['njt_tow_vehicleTowedByThis',objNul]))}" // Condition
 	];
 
 	// Action: Get a cable from this vehicle to tow another
@@ -64,14 +65,15 @@ if (!isDedicated) then {
 		"Prepare to tow another vehicle", // Title
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Idle icon
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa", // Progress icon
-		"!(_this getVariable [""tow_hasTowCable"",false]) && {(vehicle _this == _this) && ((count (ropes _target)) < 1) && ((_target distance _this) < 5) && !(_target getVariable [""tow_isTowReady"",false])};", // Condition to show
-		"!(_this getVariable [""tow_hasTowCable"",false]) && {(vehicle _this == _this) && ((count (ropes _target)) < 1) && ((_target distance _this) < 5) && !(_target getVariable [""tow_isTowReady"",false])};", // Condition to progress
-		{}, // Code on start
+		"!(_this getVariable [""njt_tow_hasTowCable"",false]) && {(vehicle _this == _this) && ((count (ropes _target)) < 1) && ((_target distance _this) < 5) && !(_target getVariable [""njt_tow_isTowReady"",false])};", // Condition to show
+		"!(_this getVariable [""njt_tow_hasTowCable"",false]) && {(vehicle _this == _this) && ((count (ropes _target)) < 1) && ((_target distance _this) < 5) && !(_target getVariable [""njt_tow_isTowReady"",false])};", // Condition to progress
+		{
+			_caller playActionNow "PutDown";
+		}, // Code on start
 		{}, // Code on tick
 		{ 
-			params ["_target", "_caller", "_actionId", "_arguments"];
-			_caller setVariable ["tow_hasTowCable",true,true];
-			_caller setVariable ["tow_prepTowingVehicle",_target,true];
+			_caller setVariable ["njt_tow_hasTowCable",true,true];
+			_caller setVariable ["njt_tow_prepTowingVehicle",_target,true];
 			hint format ["You are now carrying a cable attached to a %1.",getText (configFile >> "CfgVehicles" >> (typeOf _target) >> "displayName")];
 		}, // Code on completed
 		{}, // Code on interrupt
@@ -83,10 +85,10 @@ if (!isDedicated) then {
 		false // Show on screen
 	] call BIS_fnc_holdActionAdd;
 	
-	_canTowVehicle setVariable ["tow_towReleaseActionID",_towReleaseActionID];
-	_canTowVehicle setVariable ["tow_towPrepareActionID",_towPrepareActionID];
-	_canTowVehicle setVariable ["tow_towBrakesOffActionID",_towReleaseActionID];
-	_canTowVehicle setVariable ["tow_towBrakesOnActionID",_towReleaseActionID];
+	_canTowVehicle setVariable ["njt_tow_towReleaseActionID",_towReleaseActionID];
+	_canTowVehicle setVariable ["njt_tow_towPrepareActionID",_towPrepareActionID];
+	_canTowVehicle setVariable ["njt_tow_towBrakesOffActionID",_towReleaseActionID];
+	_canTowVehicle setVariable ["njt_tow_towBrakesOnActionID",_towReleaseActionID];
 };
 
 if (isServer) then {
@@ -97,4 +99,4 @@ if (isServer) then {
 };
 
 	// Mark this vehicle as set up
-_canTowVehicle setVariable ["tow_hasCanTowSetup",true];
+_canTowVehicle setVariable ["njt_tow_hasCanTowSetup",true];

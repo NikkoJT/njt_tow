@@ -1,6 +1,6 @@
 params ["_target","_caller","_towEnd"];
 
-private _prepTowingVehicle = _caller getVariable ["tow_prepTowingVehicle",objNull];
+private _prepTowingVehicle = _caller getVariable ["njt_tow_prepTowingVehicle",objNull];
 private _isInPosition = true;
 
 // Check how apart the vehicles are

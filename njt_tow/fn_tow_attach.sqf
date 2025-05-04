@@ -8,7 +8,7 @@ _towedVehicleType = toLower (typeOf _towedVehicle);
 _towingVehicleType = toLower (typeOf _towingVehicle);
 
 // Define variables based on preset configs
-_towingVehicleConfig = tow_vehicleConfigs getOrDefault [_towingVehicleType,(tow_vehicleConfigs get "default")];
+_towingVehicleConfig = njt_tow_vehicleConfigs getOrDefaultCall [_towingVehicleType,{njt_tow_vehicleConfigs get "default"}];
 _towingVehicleEffectiveTowMass = _towingVehicleConfig get "effectiveTowMass";
 _towingVehicleMassLimit = _towingVehicleConfig get "limitTowMass";
 _towingVehicleOffset = _towingVehicleConfig get "towHook";
@@ -17,7 +17,7 @@ _towingVehicleOffset = _towingVehicleConfig get "towHook";
 _towedVehicleOffset1 = [0,0,0];
 _towedVehicleOffset2 = [0,0,0];
 
-_towedVehicleConfig = tow_vehicleConfigs getOrDefault [_towedVehicleType,(tow_vehicleConfigs get "default")];
+_towedVehicleConfig = njt_tow_vehicleConfigs getOrDefaultCall [_towedVehicleType,{njt_tow_vehicleConfigs get "default"}];
 
 if ((getMass _towedVehicle) > _towingVehicleMassLimit) exitWith {hint "This vehicle can't tow something that heavy."};
 
@@ -53,11 +53,11 @@ if ((getMass _towedVehicle) > _towingVehicleEffectiveTowMass) then {
 };
 
 // Set script memories
-_towingVehicle setVariable ["tow_vehicleTowedByThis",_towedVehicle,true];
-_towedVehicle setVariable ["tow_vehicleTowingThis",_towingVehicle,true];
+_towingVehicle setVariable ["njt_tow_vehicleTowedByThis",_towedVehicle,true];
+_towedVehicle setVariable ["njt_tow_vehicleTowingThis",_towingVehicle,true];
 
 hint format ["Tow cable attached from %1 to %2.",getText (configFile >> "CfgVehicles" >> (typeOf _towingVehicle) >> "displayName"),getText (configFile >> "CfgVehicles" >> (typeOf _towedVehicle) >> "displayName")];
 
 // Clean up other stuff since tow was successful
-_caller setVariable ["tow_hasTowCable",false,true];
-_caller setVariable ["tow_prepTowingVehicle",objNull,true];
+_caller setVariable ["njt_tow_hasTowCable",false,true];
+_caller setVariable ["njt_tow_prepTowingVehicle",objNull,true];

@@ -2,7 +2,7 @@
 // A CONFIG THAT INHERITS FROM ANOTHER CONFIG MUST BE ADDED AFTER, NOT BEFORE, THE CONFIG IT INHERITS FROM
 /* EXAMPLE CONFIG
 
-tow_vehicleConfigs set	[toLower "gm_ge_army_fuchsa0_engineer", // Classname of vehicle (string)
+njt_tow_vehicleConfigs set	[toLower "gm_ge_army_fuchsa0_engineer", // Classname of vehicle (string)
 						(createHashmapFromArray [
 							["effectiveTowMass",5000], // The mass this vehicle can tow with good effect in Arma. Vehicles over this mass will be set to this mass (number)
 							["limitTowMass",18000], // Hard limit tow mass. Vehicles over this mass can't be towed by this vehicle at all (number)
@@ -14,17 +14,17 @@ tow_vehicleConfigs set	[toLower "gm_ge_army_fuchsa0_engineer", // Classname of v
 							["typeLockOverride",false] // If true, vehicles of this type will be locked during setup and won't be unlocked after towing. (boolean)
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_ge_army_fuchsa0_engineer") // Inherited configs: classes specified below will inherit from the class specified here.
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_ge_army_fuchsa0_engineer") // Inherited configs: classes specified below will inherit from the class specified here.
 					];
 } forEach [	"gm_ge_army_fuchsa0_reconnaissance",
 			"gm_ge_army_fuchsa0_reconnaissance_des"];
 
 
 */
-tow_vehicleConfigs = createHashmap;
+njt_tow_vehicleConfigs = createHashmap;
 
-tow_vehicleConfigs set 	[toLower "default",
+njt_tow_vehicleConfigs set 	[toLower "default",
 						(createHashmapFromArray [
 							["effectiveTowMass",3000],
 							["limitTowMass",5000],
@@ -37,7 +37,7 @@ tow_vehicleConfigs set 	[toLower "default",
 						])
 					];
 
-tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_engineer",
+njt_tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_engineer",
 						(createHashmapFromArray [
 							["effectiveTowMass",5000],
 							["limitTowMass",18000],
@@ -49,8 +49,8 @@ tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_engineer",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_ge_army_fuchsa0_engineer")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_ge_army_fuchsa0_engineer")
 					];
 } forEach [	"gm_ge_army_fuchsa0_engineer_des",
 			"gm_ge_army_fuchsa0_engineer_oli",
@@ -63,7 +63,7 @@ tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_engineer",
 			"gm_ge_army_fuchsa0_engineer_wiw"];
 			
 // BMP-1 SP-2
-tow_vehicleConfigs set 	[toLower "gm_pl_army_bmp1sp2",
+njt_tow_vehicleConfigs set 	[toLower "gm_pl_army_bmp1sp2",
 						(createHashmapFromArray [
 							["effectiveTowMass",10000],
 							["limitTowMass",13200],
@@ -75,8 +75,8 @@ tow_vehicleConfigs set 	[toLower "gm_pl_army_bmp1sp2",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_pl_army_bmp1sp2")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_pl_army_bmp1sp2")
 					];
 } forEach [	"gm_pl_army_bmp1sp2_inv",
 			"gm_pl_army_bmp1sp2_oli",
@@ -91,7 +91,7 @@ tow_vehicleConfigs set 	[toLower "gm_pl_army_bmp1sp2",
 			"gm_gc_army_bmp1sp2_win"
 			];
 			
-tow_vehicleConfigs set 	[toLower "C_Hatchback_01_F",
+njt_tow_vehicleConfigs set 	[toLower "C_Hatchback_01_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",1500],
 							["limitTowMass",2000],
@@ -104,7 +104,7 @@ tow_vehicleConfigs set 	[toLower "C_Hatchback_01_F",
 						])
 					];
 					
-tow_vehicleConfigs set 	[toLower "C_SUV_01_F",
+njt_tow_vehicleConfigs set 	[toLower "C_SUV_01_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",1500],
 							["limitTowMass",2000],
@@ -117,7 +117,7 @@ tow_vehicleConfigs set 	[toLower "C_SUV_01_F",
 						])
 					];
 			
-tow_vehicleConfigs set 	[toLower "C_Offroad_01_F",
+njt_tow_vehicleConfigs set 	[toLower "C_Offroad_01_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",1500],
 							["limitTowMass",2000],
@@ -129,8 +129,8 @@ tow_vehicleConfigs set 	[toLower "C_Offroad_01_F",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "C_Offroad_01_F")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "C_Offroad_01_F")
 					];
 } forEach [	"C_IDAP_Offroad_01_F",
 			"I_E_Offroad_01_F",
@@ -152,7 +152,7 @@ tow_vehicleConfigs set 	[toLower "C_Offroad_01_F",
 			"B_G_Offroad_01_AT_F",
 			"O_G_Offroad_01_AT_F"];
 			
-tow_vehicleConfigs set 	[toLower "C_Offroad_02_unarmed_F",
+njt_tow_vehicleConfigs set 	[toLower "C_Offroad_02_unarmed_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",1500],
 							["limitTowMass",2000],
@@ -164,14 +164,14 @@ tow_vehicleConfigs set 	[toLower "C_Offroad_02_unarmed_F",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "C_Offroad_02_unarmed_F")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "C_Offroad_02_unarmed_F")
 					];
 } forEach [	"I_C_Offroad_02_unarmed_F",
 			"I_C_Offroad_02_AT_F",
 			"C_IDAP_Offroad_02_unarmed_F"];
 			
-tow_vehicleConfigs set 	[toLower "I_C_Offroad_02_LMG_F",
+njt_tow_vehicleConfigs set 	[toLower "I_C_Offroad_02_LMG_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",1500],
 							["limitTowMass",2000],
@@ -184,7 +184,7 @@ tow_vehicleConfigs set 	[toLower "I_C_Offroad_02_LMG_F",
 						])
 					];
 
-tow_vehicleConfigs set 	[toLower "C_Van_02_transport_F",
+njt_tow_vehicleConfigs set 	[toLower "C_Van_02_transport_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",3500],
 							["limitTowMass",5000],
@@ -196,8 +196,8 @@ tow_vehicleConfigs set 	[toLower "C_Van_02_transport_F",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "C_Van_02_transport_F")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "C_Van_02_transport_F")
 					];
 } forEach [	"C_IDAP_Van_02_transport_F",
 			"I_C_Van_02_transport_F",
@@ -221,7 +221,7 @@ tow_vehicleConfigs set 	[toLower "C_Van_02_transport_F",
 			"C_IDAP_Van_02_service_F",
 			"I_E_Van_02_transport_MP_F"];
 
-tow_vehicleConfigs set 	[toLower "I_G_Offroad_01_armed_F",
+njt_tow_vehicleConfigs set 	[toLower "I_G_Offroad_01_armed_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",1500],
 							["limitTowMass",2000],
@@ -233,13 +233,13 @@ tow_vehicleConfigs set 	[toLower "I_G_Offroad_01_armed_F",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "I_G_Offroad_01_armed_F")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "I_G_Offroad_01_armed_F")
 					];
 } forEach [	"B_G_Offroad_01_armed_F",
 			"O_G_Offroad_01_armed_F"];
 			
-tow_vehicleConfigs set 	[toLower "B_MRAP_01_F",
+njt_tow_vehicleConfigs set 	[toLower "B_MRAP_01_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",4000],
 							["limitTowMass",8500],
@@ -251,12 +251,12 @@ tow_vehicleConfigs set 	[toLower "B_MRAP_01_F",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "B_MRAP_01_F")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "B_MRAP_01_F")
 					];
 } forEach [	"B_T_MRAP_01_F"];
 
-tow_vehicleConfigs set 	[toLower "B_MRAP_01_hmg_F",
+njt_tow_vehicleConfigs set 	[toLower "B_MRAP_01_hmg_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",4000],
 							["limitTowMass",8500],
@@ -268,14 +268,14 @@ tow_vehicleConfigs set 	[toLower "B_MRAP_01_hmg_F",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "B_MRAP_01_hmg_F")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "B_MRAP_01_hmg_F")
 					];
 } forEach [	"B_T_MRAP_01_hmg_F",
 			"B_T_MRAP_01_gmg_F",
 			"B_MRAP_01_gmg_F"];
 			
-tow_vehicleConfigs set 	[toLower "O_MRAP_02_F",
+njt_tow_vehicleConfigs set 	[toLower "O_MRAP_02_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",4000],
 							["limitTowMass",8500],
@@ -287,12 +287,12 @@ tow_vehicleConfigs set 	[toLower "O_MRAP_02_F",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "O_MRAP_02_F")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "O_MRAP_02_F")
 					];
 } forEach [	"O_T_MRAP_02_F"];
 
-tow_vehicleConfigs set 	[toLower "O_MRAP_02_hmg_F",
+njt_tow_vehicleConfigs set 	[toLower "O_MRAP_02_hmg_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",4000],
 							["limitTowMass",8500],
@@ -304,14 +304,14 @@ tow_vehicleConfigs set 	[toLower "O_MRAP_02_hmg_F",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "O_MRAP_02_hmg_F")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "O_MRAP_02_hmg_F")
 					];
 } forEach [	"O_T_MRAP_02_hmg_F",
 			"O_T_MRAP_02_gmg_F",
 			"O_MRAP_02_gmg_F"];
 			
-tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_reconnaissance",
+njt_tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_reconnaissance",
 						(createHashmapFromArray [
 							["effectiveTowMass",5000],
 							["limitTowMass",18000],
@@ -323,8 +323,8 @@ tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_reconnaissance",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_ge_army_fuchsa0_reconnaissance")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_ge_army_fuchsa0_reconnaissance")
 					];
 } forEach [	"gm_ge_army_fuchsa0_reconnaissance_des",
 			"gm_ge_army_fuchsa0_reconnaissance_oli",
@@ -336,7 +336,7 @@ tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_reconnaissance",
 			"gm_ge_army_fuchsa0_reconnaissance_wdl",
 			"gm_ge_army_fuchsa0_reconnaissance_wiw"];
 			
-tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_command",
+njt_tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_command",
 						(createHashmapFromArray [
 							["effectiveTowMass",5000],
 							["limitTowMass",18000],
@@ -348,8 +348,8 @@ tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_command",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_ge_army_fuchsa0_command")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_ge_army_fuchsa0_command")
 					];
 } forEach [	"gm_ge_army_fuchsa0_command_des",
 			"gm_ge_army_fuchsa0_command_oli",
@@ -361,7 +361,7 @@ tow_vehicleConfigs set 	[toLower "gm_ge_army_fuchsa0_command",
 			"gm_ge_army_fuchsa0_command_wdl",
 			"gm_ge_army_fuchsa0_command_wiw"];
 
-tow_vehicleConfigs set 	[toLower "gm_ge_army_bpz2a0",
+njt_tow_vehicleConfigs set 	[toLower "gm_ge_army_bpz2a0",
 						(createHashmapFromArray [
 							["effectiveTowMass",10000],
 							["limitTowMass",60000],
@@ -374,7 +374,7 @@ tow_vehicleConfigs set 	[toLower "gm_ge_army_bpz2a0",
 						])
 					];
 
-tow_vehicleConfigs set 	[toLower "US85_M1IP",
+njt_tow_vehicleConfigs set 	[toLower "US85_M1IP",
 						(createHashmapFromArray [
 							["effectiveTowMass",10000],
 							["limitTowMass",20000],
@@ -386,12 +386,12 @@ tow_vehicleConfigs set 	[toLower "US85_M1IP",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "US85_M1IP")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "US85_M1IP")
 					];
 } forEach [	"US85_M1A1"];
 	
-tow_vehicleConfigs set 	[toLower "US85_M923c",
+njt_tow_vehicleConfigs set 	[toLower "US85_M923c",
 						(createHashmapFromArray [
 							["effectiveTowMass",5000],
 							["limitTowMass",10000],
@@ -403,13 +403,13 @@ tow_vehicleConfigs set 	[toLower "US85_M923c",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "US85_M923c")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "US85_M923c")
 					];
 } forEach [	"US85_M923o",
 			"US85_M923f"];
 	
-tow_vehicleConfigs set 	[toLower "US85_M923a",
+njt_tow_vehicleConfigs set 	[toLower "US85_M923a",
 						(createHashmapFromArray [
 							["effectiveTowMass",5000],
 							["limitTowMass",10000],
@@ -421,12 +421,12 @@ tow_vehicleConfigs set 	[toLower "US85_M923a",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "US85_M923a")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "US85_M923a")
 					];
 } forEach [	"US85_M923r"];
 
-tow_vehicleConfigs set 	[toLower "gm_gc_army_btr60pa",
+njt_tow_vehicleConfigs set 	[toLower "gm_gc_army_btr60pa",
 						(createHashmapFromArray [
 							["effectiveTowMass",3900],
 							["limitTowMass",12000],
@@ -438,8 +438,8 @@ tow_vehicleConfigs set 	[toLower "gm_gc_army_btr60pa",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_gc_army_btr60pa")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_gc_army_btr60pa")
 					];
 } forEach [	"gm_gc_army_btr60pa_oli",
 			"gm_gc_army_btr60pa_ols",
@@ -448,7 +448,7 @@ tow_vehicleConfigs set 	[toLower "gm_gc_army_btr60pa",
 			"gm_gc_army_btr60pa_wdl",
 			"gm_gc_army_btr60pa_win"];
 			
-tow_vehicleConfigs set 	[toLower "gm_gc_army_btr60pb",
+njt_tow_vehicleConfigs set 	[toLower "gm_gc_army_btr60pb",
 						(createHashmapFromArray [
 							["effectiveTowMass",3900],
 							["limitTowMass",12000],
@@ -460,8 +460,8 @@ tow_vehicleConfigs set 	[toLower "gm_gc_army_btr60pb",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_gc_army_btr60pb")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_gc_army_btr60pb")
 					];
 } forEach [	"gm_gc_army_btr60pb_oli",
 			"gm_gc_army_btr60pb_ols",
@@ -477,7 +477,7 @@ tow_vehicleConfigs set 	[toLower "gm_gc_army_btr60pb",
 			"gm_gc_army_btr60pu12_wdl",
 			"gm_gc_army_btr60pu12_win"];
 	
-tow_vehicleConfigs set [toLower "gm_gc_army_ural4320_cargo",
+njt_tow_vehicleConfigs set [toLower "gm_gc_army_ural4320_cargo",
 						(createHashmapFromArray [
 							["effectiveTowMass",5000],
 							["limitTowMass",14000],
@@ -489,8 +489,8 @@ tow_vehicleConfigs set [toLower "gm_gc_army_ural4320_cargo",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_gc_army_ural4320_cargo")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_gc_army_ural4320_cargo")
 					];
 } forEach [	"gm_gc_army_ural4320_cargo_oli",
 			"gm_gc_army_ural4320_cargo_ols",
@@ -565,7 +565,7 @@ tow_vehicleConfigs set [toLower "gm_gc_army_ural4320_cargo",
 			"gm_gc_army_ural375d_mlrs_wdl",
 			"gm_gc_army_ural375d_mlrs_win"];
 
-tow_vehicleConfigs set [toLower "gm_gc_army_ural44202",
+njt_tow_vehicleConfigs set [toLower "gm_gc_army_ural44202",
 						(createHashmapFromArray [
 							["effectiveTowMass",5000],
 							["limitTowMass",14000],
@@ -578,7 +578,7 @@ tow_vehicleConfigs set [toLower "gm_gc_army_ural44202",
 						])
 					];
 
-tow_vehicleConfigs set [toLower "US85_M1043_M60",
+njt_tow_vehicleConfigs set [toLower "US85_M1043_M60",
 						(createHashmapFromArray [
 							["effectiveTowMass",1000],
 							["limitTowMass",3000],
@@ -590,14 +590,14 @@ tow_vehicleConfigs set [toLower "US85_M1043_M60",
 							["typeLockOverride",false]
 						])
 					],
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "US85_M1043_M60")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "US85_M1043_M60")
 					];
 } forEach [	"US85_M1043_ua",
 			"US85_M1025_ua",
 			"US85_M1025_M60"];
 
-tow_vehicleConfigs set [toLower "US85_M1008",
+njt_tow_vehicleConfigs set [toLower "US85_M1008",
 						(createHashmapFromArray [
 							["effectiveTowMass",1000],
 							["limitTowMass",3000],
@@ -609,13 +609,13 @@ tow_vehicleConfigs set [toLower "US85_M1008",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "US85_M1008")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "US85_M1008")
 					];
 } forEach [	"US85_M1008c",
 			"US85_M1008_S250"];
 
-tow_vehicleConfigs set [toLower "gm_ge_army_m113a1g_apc",
+njt_tow_vehicleConfigs set [toLower "gm_ge_army_m113a1g_apc",
 						(createHashmapFromArray [
 							["effectiveTowMass",4000],
 							["limitTowMass",12000],
@@ -627,8 +627,8 @@ tow_vehicleConfigs set [toLower "gm_ge_army_m113a1g_apc",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_ge_army_m113a1g_apc")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_ge_army_m113a1g_apc")
 					];
 } forEach [	"gm_ge_army_m113a1g_apc_des",
 			"gm_ge_army_m113a1g_apc_oli",
@@ -701,7 +701,7 @@ tow_vehicleConfigs set [toLower "gm_ge_army_m113a1g_apc",
 			"gm_dk_army_m113a2dk_apc_win"
 			];
 			
-tow_vehicleConfigs set [toLower "gm_gc_army_brdm2",
+njt_tow_vehicleConfigs set [toLower "gm_gc_army_brdm2",
 						(createHashmapFromArray [
 							["effectiveTowMass",4000],
 							["limitTowMass",7500],
@@ -713,8 +713,8 @@ tow_vehicleConfigs set [toLower "gm_gc_army_brdm2",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_gc_army_brdm2")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_gc_army_brdm2")
 					];
 } forEach [	"gm_gc_army_brdm2_win",
 			"gm_gc_army_brdm2_oli",
@@ -729,7 +729,7 @@ tow_vehicleConfigs set [toLower "gm_gc_army_brdm2",
 			"gm_pl_army_brdm2_olw",
 			"gm_pl_army_brdm2_inv"];
 
-tow_vehicleConfigs set 	[toLower "gm_ge_civ_typ1200",
+njt_tow_vehicleConfigs set 	[toLower "gm_ge_civ_typ1200",
 						(createHashmapFromArray [
 							["effectiveTowMass",900],
 							["limitTowMass",1300],
@@ -741,8 +741,8 @@ tow_vehicleConfigs set 	[toLower "gm_ge_civ_typ1200",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_ge_civ_typ1200")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_ge_civ_typ1200")
 					];
 } forEach [	"gm_ge_dbp_typ1200",
 			"gm_ge_ff_typ1200",
@@ -759,7 +759,7 @@ tow_vehicleConfigs set 	[toLower "gm_ge_civ_typ1200",
 			"gm_ge_army_typ1200_cargo_olw",
 			"gm_ge_army_typ1200_cargo_olw_rc"];
 
-tow_vehicleConfigs set 	[toLower "gm_gc_civ_p601",
+njt_tow_vehicleConfigs set 	[toLower "gm_gc_civ_p601",
 						(createHashmapFromArray [
 							["effectiveTowMass",600],
 							["limitTowMass",650],
@@ -771,8 +771,8 @@ tow_vehicleConfigs set 	[toLower "gm_gc_civ_p601",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_gc_civ_p601")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_gc_civ_p601")
 					];
 } forEach [	"gm_gc_ff_p601",
 			"gm_gc_pol_p601",
@@ -784,7 +784,7 @@ tow_vehicleConfigs set 	[toLower "gm_gc_civ_p601",
 			"gm_gc_bgs_p601_oli"];
 
 // Mora
-tow_vehicleConfigs set 	[toLower "I_APC_tracked_03_cannon_F",
+njt_tow_vehicleConfigs set 	[toLower "I_APC_tracked_03_cannon_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",15000],
 							["limitTowMass",36200],
@@ -796,13 +796,13 @@ tow_vehicleConfigs set 	[toLower "I_APC_tracked_03_cannon_F",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "I_APC_tracked_03_cannon_F")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "I_APC_tracked_03_cannon_F")
 					];
 } forEach [	"I_E_APC_tracked_03_cannon_F"];
 
 //  Zamak
-tow_vehicleConfigs set 	[toLower "C_Truck_02_transport_F",
+njt_tow_vehicleConfigs set 	[toLower "C_Truck_02_transport_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",9000],
 							["limitTowMass",10801],
@@ -814,8 +814,8 @@ tow_vehicleConfigs set 	[toLower "C_Truck_02_transport_F",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "C_Truck_02_transport_F")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "C_Truck_02_transport_F")
 					];
 } forEach [	"C_Truck_02_covered_F",
 			"C_Truck_02_fuel_F",
@@ -840,7 +840,7 @@ tow_vehicleConfigs set 	[toLower "C_Truck_02_transport_F",
 			"C_IDAP_Truck_02_water_F"];
 			
 // SKOT-2A (GM)
-tow_vehicleConfigs set [toLower "gm_pl_army_ot64a",
+njt_tow_vehicleConfigs set [toLower "gm_pl_army_ot64a",
 						(createHashmapFromArray [
 							["effectiveTowMass",10000],
 							["limitTowMass",14100],
@@ -852,8 +852,8 @@ tow_vehicleConfigs set [toLower "gm_pl_army_ot64a",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "gm_pl_army_ot64a")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "gm_pl_army_ot64a")
 					];
 } forEach [	"gm_pl_army_ot64a_inv",
 			"gm_pl_army_ot64a_oli",
@@ -861,7 +861,7 @@ tow_vehicleConfigs set [toLower "gm_pl_army_ot64a",
 			"gm_pl_army_ot64a_olw"];
 
 // Marshall
-tow_vehicleConfigs set [toLower "B_APC_Wheeled_01_cannon_F",
+njt_tow_vehicleConfigs set [toLower "B_APC_Wheeled_01_cannon_F",
 						(createHashmapFromArray [
 							["effectiveTowMass",16000],
 							["limitTowMass",24000],
@@ -873,8 +873,8 @@ tow_vehicleConfigs set [toLower "B_APC_Wheeled_01_cannon_F",
 							["typeLockOverride",false]
 						])
 					];
-{tow_vehicleConfigs set [toLower _x,
-						tow_vehicleConfigs get (toLower "B_APC_Wheeled_01_cannon_F")
+{njt_tow_vehicleConfigs set [toLower _x,
+						njt_tow_vehicleConfigs get (toLower "B_APC_Wheeled_01_cannon_F")
 					];
 } forEach [	"B_T_APC_Wheeled_01_cannon_F"];
 			
@@ -883,16 +883,16 @@ tow_vehicleConfigs set [toLower "B_APC_Wheeled_01_cannon_F",
 // If you want to add a vehicle later you have to remoteExec njt_fnc_towableSetup or njt_fnc_canTowSetup on it.
 // By default all vehicles with configured classes will be added.
 
-_towableClassList = keys tow_vehicleConfigs;
-_canTowClassList = keys tow_vehicleConfigs;
+_towableClassList = keys njt_tow_vehicleConfigs;
+_canTowClassList = keys njt_tow_vehicleConfigs;
 
 _towableVehiclesBeforeRemoves = vehicles select {(toLower typeOf _x) in _towableClassList};
 _canTowVehiclesBeforeRemoves = vehicles select {(toLower typeOf _x) in _canTowClassList};
 
 // Remove specific vehicles even if they are configured by type:
-towableVehicles = _towableVehiclesBeforeRemoves - [];
-canTowVehicles = _canTowVehiclesBeforeRemoves - [];
+njt_towableVehicles = _towableVehiclesBeforeRemoves - [];
+njt_canTowVehicles = _canTowVehiclesBeforeRemoves - [];
 
 // These two arrays can contain specific vehicles that you want to add to each list, in addition to the classes. Specified vehicles will still use their class-type config defined above.
-towableVehicles append [];
-canTowVehicles append [];
+njt_towableVehicles append [];
+njt_canTowVehicles append [];

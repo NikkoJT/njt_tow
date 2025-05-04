@@ -12,6 +12,10 @@ class CfgFunctions
 			class tow_towableSetup{};
 			class tow_prepareForTow{};
 			class tow_removeActions{};
+			class tow_init{
+				postInit = 1;
+			};
+			class tow_physicsImpulse{};
 		};
 	};
 };
