@@ -55,3 +55,5 @@ if (hasInterface) then {
 };
 
 addUserActionEventHandler ["CarForward", "Activate", { vehicle player spawn njt_fnc_tow_physicsImpulse }];
+addUserActionEventHandler ["CarSlowForward", "Activate", { vehicle player spawn njt_fnc_tow_physicsImpulse }];
+addUserActionEventHandler ["CarFastForward", "Activate", { vehicle player spawn njt_fnc_tow_physicsImpulse }];

@@ -33,14 +33,9 @@ switch (_towEnd) do {
 	};
 };
 
-// Force the towed vehicle to change locality
-[_towedVehicle,(owner _towingVehicle)] remoteExec ["setOwner",2];
-
-waitUntil {(owner _towedVehicle) == (owner _towingVehicle)};
-
 // Tie me up, tie me down
-_rope1 = ropeCreate [_towingVehicle, _towingVehicleOffset, _towedVehicle, _towedVehicleOffset1, 4];
-_rope2 = ropeCreate [_towingVehicle, _towingVehicleOffset, _towedVehicle, _towedVehicleOffset2, 4];
+_rope1 = ropeCreate [_towingVehicle, _towingVehicleOffset, _towedVehicle, _towedVehicleOffset1, 4, ["", [0,0,-1]], ["", [0,0,-1]], "Rope", 6];
+_rope2 = ropeCreate [_towingVehicle, _towingVehicleOffset, _towedVehicle, _towedVehicleOffset2, 4, ["", [0,0,-1]], ["", [0,0,-1]], "Rope", 6];
 [_towedVehicle,_towingVehicle] remoteExec ["setTowParent",0,_towedVehicle];
 
 // Wait for locality reasons
@@ -55,6 +50,7 @@ if ((getMass _towedVehicle) > _towingVehicleEffectiveTowMass) then {
 // Set script memories
 _towingVehicle setVariable ["njt_tow_vehicleTowedByThis",_towedVehicle,true];
 _towedVehicle setVariable ["njt_tow_vehicleTowingThis",_towingVehicle,true];
+_towedVehicle setVariable ["njt_tow_towEnd",_towEnd,true];
 
 hint format ["Tow cable attached from %1 to %2.",getText (configFile >> "CfgVehicles" >> (typeOf _towingVehicle) >> "displayName"),getText (configFile >> "CfgVehicles" >> (typeOf _towedVehicle) >> "displayName")];
 
